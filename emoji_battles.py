@@ -23,13 +23,13 @@ p2_hp = 100
 winners = []
 losers = []
 
-with open('D:\\heroes.json', 'r') as heroes:
+with open('heroes.json', 'r') as heroes:
 	heroes_dict = json.load(heroes)
 
-with open('D:\\leaderboard.json', 'r') as leaderboard:
+with open('leaderboard.json', 'r') as leaderboard:
 	leaderboard_dict = json.load(leaderboard)
 
-with open('D:\\boss.json', 'r') as boss:
+with open('boss.json', 'r') as boss:
 	boss_dict = json.load(boss)
 	
 @client.event
@@ -50,10 +50,10 @@ async def choose_emote(ctx):
 			heroes_dict.update(new_user)
 			if clean_id not in leaderboard_dict:
 				leaderboard_dict.update(new_in_leaderboard)
-				with open('D:\\leaderboard.json', 'w') as leaderboard:
+				with open('leaderboard.json', 'w') as leaderboard:
 								json.dump(leaderboard_dict, leaderboard)
 			await client.send_message(ctx.message.channel, "**Emote escolhido com sucesso.**")
-			with open('D:\\heroes.json', 'w') as heroes:
+			with open('heroes.json', 'w') as heroes:
 								json.dump(heroes_dict, heroes)
 		else:
 			await client.send_message(ctx.message.channel, "**Isso não é um emote.**")
@@ -140,7 +140,7 @@ async def battle(ctx):
 						leaderboard_dict[str(challenged_id[0])] -=2
 					if leaderboard_dict[str(challenged_id[0])] <0:
 						leaderboard_dict[str(challenged_id[0])] = 0
-					with open('D:\\leaderboard.json', 'w') as leaderboard:
+					with open('leaderboard.json', 'w') as leaderboard:
 							json.dump(leaderboard_dict, leaderboard)
 					battle_running.clear()
 					votes.clear()
@@ -181,7 +181,7 @@ async def battle(ctx):
 						leaderboard_dict[str(challenged_id[0])] -=2
 					if leaderboard_dict[str(challenged_id[0])] <0:
 						leaderboard_dict[str(challenged_id[0])] = 0
-					with open('D:\\leaderboard.json', 'w') as leaderboard:
+					with open('leaderboard.json', 'w') as leaderboard:
 							json.dump(leaderboard_dict, leaderboard)
 					battle_running.clear()
 					votes.clear()
@@ -237,7 +237,7 @@ async def battle(ctx):
 						leaderboard_dict[challenger_id] -=2
 					if leaderboard_dict[challenger_id] <0:
 						leaderboard_dict[challenger_id] = 0
-					with open('D:\\leaderboard.json', 'w') as leaderboard:
+					with open('leaderboard.json', 'w') as leaderboard:
 							json.dump(leaderboard_dict, leaderboard)
 					battle_running.clear()
 					votes.clear()
@@ -281,7 +281,7 @@ async def battle(ctx):
 						leaderboard_dict[challenger_id] -=2
 					if leaderboard_dict[challenger_id] <0:
 						leaderboard_dict[challenger_id] = 0
-					with open('D:\\leaderboard.json', 'w') as leaderboard:
+					with open('leaderboard.json', 'w') as leaderboard:
 							json.dump(leaderboard_dict, leaderboard)
 					battle_running.clear()
 					votes.clear()
@@ -322,7 +322,7 @@ async def reset_top(ctx):
 		for points in leaderboard_dict:
 			leaderboard_dict[points] = 0
 		await client.say('**Ranking resetado.**')
-	with open('D:\\leaderboard.json', 'w') as leaderboard:
+	with open('leaderboard.json', 'w') as leaderboard:
 			json.dump(leaderboard_dict, leaderboard)
 	if "217793175023124480" not in ctx.message.author.id:
 		await client.say('**Comando apenas do meu goshujin-sama.**')
@@ -471,7 +471,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p2)] -=3
 							if leaderboard_dict[str(p2)] <0:
 								leaderboard_dict[str(p2)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -497,7 +497,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p3)] -=3
 							if leaderboard_dict[str(p3)] <0:
 								leaderboard_dict[str(p3)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 					if pick_player == "p4":
@@ -522,7 +522,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p4)] -=3
 							if leaderboard_dict[str(p4)] <0:
 								leaderboard_dict[str(p4)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 					if pick_player == "p5":
@@ -547,7 +547,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p5)] -=3
 							if leaderboard_dict[str(p5)] <0:
 								leaderboard_dict[str(p5)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -573,7 +573,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p6)] -=3
 							if leaderboard_dict[str(p6)] <0:
 								leaderboard_dict[str(p6)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 				if len(p1_roll_survivors) ==0:
 					await client.send_message(ctx.message.channel, "<@"+str(p1)+"> foi o sobrevivente! Use o comando `~flw menção` para chutar um dos perdedores.")
@@ -631,7 +631,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p2)] -=3
 							if leaderboard_dict[str(p2)] <0:
 								leaderboard_dict[str(p2)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -658,7 +658,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p3)] -=3
 							if leaderboard_dict[str(p3)] <0:
 								leaderboard_dict[str(p3)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -685,7 +685,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p4)] -=3
 							if leaderboard_dict[str(p4)] <0:
 								leaderboard_dict[str(p4)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -712,7 +712,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p5)] -=3
 							if leaderboard_dict[str(p5)] <0:
 								leaderboard_dict[str(p5)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -738,7 +738,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p6)] -=3
 							if leaderboard_dict[str(p6)] <0:
 								leaderboard_dict[str(p6)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 				if len(p1_roll_survivors) ==0:
 					await client.send_message(ctx.message.channel, "<@"+str(p1)+"> foi o sobrevivente! Use o comando `~flw menção` para chutar um dos perdedores.")
@@ -790,7 +790,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p1)] -=3
 							if leaderboard_dict[str(p1)] <0:
 								leaderboard_dict[str(p1)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -816,7 +816,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p3)] -=3
 							if leaderboard_dict[str(p3)] <0:
 								leaderboard_dict[str(p3)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 					if pick_player == "p4":
@@ -841,7 +841,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p4)] -=3
 							if leaderboard_dict[str(p4)] <0:
 								leaderboard_dict[str(p4)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 					if pick_player == "p5":
@@ -866,7 +866,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p5)] -=3
 							if leaderboard_dict[str(p5)] <0:
 								leaderboard_dict[str(p5)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -892,7 +892,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p6)] -=3
 							if leaderboard_dict[str(p6)] <0:
 								leaderboard_dict[str(p6)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 				if len(p2_roll_survivors) ==0:
 					await client.send_message(ctx.message.channel, "<@"+str(p2)+"> foi o sobrevivente! Use o comando `~flw menção` para chutar um dos perdedores.")
@@ -950,7 +950,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p1)] -=3
 							if leaderboard_dict[str(p1)] <0:
 								leaderboard_dict[str(p1)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -977,7 +977,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p3)] -=3
 							if leaderboard_dict[str(p3)] <0:
 								leaderboard_dict[str(p3)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1004,7 +1004,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p4)] -=3
 							if leaderboard_dict[str(p4)] <0:
 								leaderboard_dict[str(p4)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1031,7 +1031,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p5)] -=3
 							if leaderboard_dict[str(p5)] <0:
 								leaderboard_dict[str(p5)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1057,7 +1057,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p6)] -=3
 							if leaderboard_dict[str(p6)] <0:
 								leaderboard_dict[str(p6)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1111,7 +1111,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p2)] -=3
 							if leaderboard_dict[str(p2)] <0:
 								leaderboard_dict[str(p2)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1137,7 +1137,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p1)] -=3
 							if leaderboard_dict[str(p1)] <0:
 								leaderboard_dict[str(p1)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 					if pick_player == "p4":
@@ -1162,7 +1162,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p4)] -=3
 							if leaderboard_dict[str(p4)] <0:
 								leaderboard_dict[str(p4)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 					if pick_player == "p5":
@@ -1187,7 +1187,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p5)] -=3
 							if leaderboard_dict[str(p5)] <0:
 								leaderboard_dict[str(p5)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1213,7 +1213,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p6)] -=3
 							if leaderboard_dict[str(p6)] <0:
 								leaderboard_dict[str(p6)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 				if len(p3_roll_survivors) ==0:
 					await client.send_message(ctx.message.channel, "<@"+str(p3)+"> foi o sobrevivente! Use o comando `~flw menção` para chutar um dos perdedores.")
@@ -1271,7 +1271,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p2)] -=3
 							if leaderboard_dict[str(p2)] <0:
 								leaderboard_dict[str(p2)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1298,7 +1298,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p1)] -=3
 							if leaderboard_dict[str(p1)] <0:
 								leaderboard_dict[str(p1)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1325,7 +1325,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p4)] -=3
 							if leaderboard_dict[str(p4)] <0:
 								leaderboard_dict[str(p4)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1352,7 +1352,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p5)] -=3
 							if leaderboard_dict[str(p5)] <0:
 								leaderboard_dict[str(p5)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1378,7 +1378,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p6)] -=3
 							if leaderboard_dict[str(p6)] <0:
 								leaderboard_dict[str(p6)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1432,7 +1432,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p2)] -=3
 							if leaderboard_dict[str(p2)] <0:
 								leaderboard_dict[str(p2)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1458,7 +1458,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p3)] -=3
 							if leaderboard_dict[str(p3)] <0:
 								leaderboard_dict[str(p3)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 					if pick_player == "p1":
@@ -1483,7 +1483,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p1)] -=3
 							if leaderboard_dict[str(p1)] <0:
 								leaderboard_dict[str(p1)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 					if pick_player == "p5":
@@ -1508,7 +1508,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p5)] -=3
 							if leaderboard_dict[str(p5)] <0:
 								leaderboard_dict[str(p5)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1534,7 +1534,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p6)] -=3
 							if leaderboard_dict[str(p6)] <0:
 								leaderboard_dict[str(p6)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 				if len(p4_roll_survivors) ==0:
 					await client.send_message(ctx.message.channel, "<@"+str(p4)+"> foi o sobrevivente! Use o comando `~flw menção` para chutar um dos perdedores.")
@@ -1592,7 +1592,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p2)] -=3
 							if leaderboard_dict[str(p2)] <0:
 								leaderboard_dict[str(p2)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1619,7 +1619,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p3)] -=3
 							if leaderboard_dict[str(p3)] <0:
 								leaderboard_dict[str(p3)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1646,7 +1646,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p1)] -=3
 							if leaderboard_dict[str(p1)] <0:
 								leaderboard_dict[str(p1)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1673,7 +1673,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p5)] -=3
 							if leaderboard_dict[str(p5)] <0:
 								leaderboard_dict[str(p5)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1699,7 +1699,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p6)] -=3
 							if leaderboard_dict[str(p6)] <0:
 								leaderboard_dict[str(p6)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1753,7 +1753,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p2)] -=3
 							if leaderboard_dict[str(p2)] <0:
 								leaderboard_dict[str(p2)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1779,7 +1779,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p3)] -=3
 							if leaderboard_dict[str(p3)] <0:
 								leaderboard_dict[str(p3)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 					if pick_player == "p4":
@@ -1804,7 +1804,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p4)] -=3
 							if leaderboard_dict[str(p4)] <0:
 								leaderboard_dict[str(p4)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 					if pick_player == "p1":
@@ -1829,7 +1829,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p1)] -=3
 							if leaderboard_dict[str(p1)] <0:
 								leaderboard_dict[str(p1)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1855,7 +1855,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p6)] -=3
 							if leaderboard_dict[str(p6)] <0:
 								leaderboard_dict[str(p6)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 				if len(p5_roll_survivors) ==0:
 					await client.send_message(ctx.message.channel, "<@"+str(p5)+"> foi o sobrevivente! Use o comando `~flw menção` para chutar um dos perdedores.")
@@ -1913,7 +1913,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p2)] -=3
 							if leaderboard_dict[str(p2)] <0:
 								leaderboard_dict[str(p2)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1940,7 +1940,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p3)] -=3
 							if leaderboard_dict[str(p3)] <0:
 								leaderboard_dict[str(p3)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1967,7 +1967,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p4)] -=3
 							if leaderboard_dict[str(p4)] <0:
 								leaderboard_dict[str(p4)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -1994,7 +1994,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p1)] -=3
 							if leaderboard_dict[str(p1)] <0:
 								leaderboard_dict[str(p1)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -2020,7 +2020,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p6)] -=3
 							if leaderboard_dict[str(p6)] <0:
 								leaderboard_dict[str(p6)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -2101,7 +2101,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p2)] -=3
 							if leaderboard_dict[str(p2)] <0:
 								leaderboard_dict[str(p2)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -2127,7 +2127,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p3)] -=3
 							if leaderboard_dict[str(p3)] <0:
 								leaderboard_dict[str(p3)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 					if pick_player == "p4":
@@ -2152,7 +2152,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p4)] -=3
 							if leaderboard_dict[str(p4)] <0:
 								leaderboard_dict[str(p4)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 					if pick_player == "p5":
@@ -2177,7 +2177,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p5)] -=3
 							if leaderboard_dict[str(p5)] <0:
 								leaderboard_dict[str(p5)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -2203,7 +2203,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p1)] -=3
 							if leaderboard_dict[str(p1)] <0:
 								leaderboard_dict[str(p1)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 				if len(p6_roll_survivors) ==0:
 					await client.send_message(ctx.message.channel, "<@"+str(p6)+"> foi o sobrevivente! Use o comando `~flw menção` para chutar um dos perdedores.")
@@ -2261,7 +2261,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p2)] -=3
 							if leaderboard_dict[str(p2)] <0:
 								leaderboard_dict[str(p2)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -2288,7 +2288,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p3)] -=3
 							if leaderboard_dict[str(p3)] <0:
 								leaderboard_dict[str(p3)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -2315,7 +2315,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p4)] -=3
 							if leaderboard_dict[str(p4)] <0:
 								leaderboard_dict[str(p4)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -2342,7 +2342,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p5)] -=3
 							if leaderboard_dict[str(p5)] <0:
 								leaderboard_dict[str(p5)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -2368,7 +2368,7 @@ async def survival(ctx):
 							leaderboard_dict[str(p1)] -=3
 							if leaderboard_dict[str(p1)] <0:
 								leaderboard_dict[str(p1)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
 
 
@@ -2476,9 +2476,9 @@ async def try_my_luck(ctx):
 								leaderboard_dict[str(boss_id)] +=10
 							if leaderboard_dict[str(ctx.message.author.id)] <0:
 								leaderboard_dict[str(ctx.message.author.id)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
-							with open('D:\\boss.json', 'w') as boss:
+							with open('boss.json', 'w') as boss:
 									json.dump(boss_dict, boss)
 							boss_running.clear()
 							break
@@ -2518,9 +2518,9 @@ async def try_my_luck(ctx):
 								leaderboard_dict[str(boss_id)] +=10
 							if leaderboard_dict[str(ctx.message.author.id)] <0:
 								leaderboard_dict[str(ctx.message.author.id)] = 0
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
-							with open('D:\\boss.json', 'w') as boss:
+							with open('boss.json', 'w') as boss:
 									json.dump(boss_dict, boss)
 							boss_running.clear()
 							break
@@ -2575,9 +2575,9 @@ async def try_my_luck(ctx):
 								leaderboard_dict[str(ctx.message.author.id)] +=100
 								boss_dict["bossId"] = str(ctx.message.author.id)
 								boss_dict["bossEmote"] = heroes_dict[str(player_id)]
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
-							with open('D:\\boss.json', 'w') as boss:
+							with open('boss.json', 'w') as boss:
 									json.dump(boss_dict, boss)
 							boss_running.clear()
 							votes.clear()
@@ -2621,9 +2621,9 @@ async def try_my_luck(ctx):
 								leaderboard_dict[str(ctx.message.author.id)] +=100
 								boss_dict["bossId"] = str(ctx.message.author.id)
 								boss_dict["bossEmote"] = heroes_dict[str(player_id)]
-							with open('D:\\leaderboard.json', 'w') as leaderboard:
+							with open('leaderboard.json', 'w') as leaderboard:
 									json.dump(leaderboard_dict, leaderboard)
-							with open('D:\\boss.json', 'w') as boss:
+							with open('boss.json', 'w') as boss:
 									json.dump(boss_dict, boss)
 							boss_running.clear()
 							break
